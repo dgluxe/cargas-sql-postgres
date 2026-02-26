@@ -1,41 +1,93 @@
-# Projeto SQL: Controle de Cargas (PostgreSQL + Docker)
+# Controle de Cargas com PostgreSQL e Docker
 
-Projeto simples para praticar modelagem relacional e consultas SQL (JOIN, WHERE, GROUP BY, CASE), simulando controle de cargas por empresa.
+Projeto prático de modelagem relacional e consultas SQL simulando um sistema simples de controle de cargas por empresa.
+
+O objetivo é demonstrar domínio de:
+
+- Modelagem relacional
+- Chaves primárias e estrangeiras
+- JOIN
+- WHERE
+- GROUP BY
+- CASE
+- CHECK constraint
+- Docker + PostgreSQL
+
+---
 
 ## Tecnologias
-PostgreSQL 16
-Docker + Docker Compose
-DBeaver (cliente SQL)
 
-## Estrutura
-sql/01_schema.sql cria tabelas e índice
-sql/02_seed.sql insere dados de exemplo
-sql/03_queries.sql consultas prontas (relatórios)
+- PostgreSQL 16
+- Docker
+- Docker Compose
+- DBeaver (cliente SQL)
 
-## Como rodar (Docker Compose)
-Subir o banco
+---
+
+## Modelagem
+
+### Tabela empresas
+- id (PK)
+- nome
+- cnpj
+
+### Tabela cargas
+- id (PK)
+- empresa_id (FK → empresas.id)
+- descricao
+- previsao_chegada
+- status (CHECK: PENDENTE ou RECEBIDA)
+- criado_em
+
+Relacionamento:  
+Uma empresa pode possuir várias cargas (1:N).
+
+---
+
+## Como executar o projeto
+
+### 1 Subir o banco
+
+```
 docker compose up -d
-
-Ver se está rodando
+```
+2 Verificar se está rodando
 docker compose ps
+3 Conectar no banco (DBeaver)
 
-Parar
-docker compose stop
+Host: localhost
+Porta: 5432
+Database: cargasdb
+User: postgres
+Password: 1234
 
-## Conectar no DBeaver
-Host localhost
-Porta 5432
-Database cargasdb
-User postgres
-Password 1234
+Scripts
 
-## Como aplicar os scripts
-No DBeaver, execute na ordem
-1 sql/01_schema.sql
-2 sql/02_seed.sql
-3 sql/03_queries.sql
+Ordem de execução manual (caso deseje rodar no DBeaver):
 
-## Exemplos de relatórios
+sql/01_schema.sql
+
+sql/02_seed.sql
+
+sql/03_queries.sql
+
+Exemplos de consultas implementadas
 Cargas com empresa (JOIN)
-Pendentes por empresa (GROUP BY + WHERE)
-Pendentes com situação (CASE: ATRASADA / NO PRAZO)
+
+Relacionamento entre cargas e empresas.
+
+Total de cargas por empresa
+
+Uso de GROUP BY e COUNT.
+
+Total de pendentes e recebidas por empresa
+
+Uso de COUNT com filtro condicional.
+
+Classificação de atraso
+
+Uso de CASE para identificar cargas ATRASADAS ou NO PRAZO.
+
+Objetivo educacional
+
+Este projeto foi desenvolvido para consolidar fundamentos de SQL e boas práticas utilizando Docker para ambiente isolado e reproduzível.E: ATRASADA / NO PRAZO)
