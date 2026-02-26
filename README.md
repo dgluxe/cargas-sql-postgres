@@ -31,6 +31,14 @@ O objetivo é demonstrar domínio de:
 - nome
 - cnpj
 
+## Diagramas e prints
+
+### Diagrama (ERD)
+![Diagrama ERD](docs/erd.png)
+
+### Exemplo de resultado de query
+![Resultado de query](docs/query_resultado.png)
+
 ### Tabela cargas
 - id (PK)
 - empresa_id (FK → empresas.id)
