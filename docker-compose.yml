@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16
+    container_name: pg-cargas
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: cargasdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata-cargas:/var/lib/postgresql/data
+      - ./sql:/docker-entrypoint-initdb.d
+
+volumes:
+  pgdata-cargas:
