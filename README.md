@@ -52,14 +52,16 @@ Uma empresa pode possuir várias cargas (1:N).
 docker compose up -d
 ```
 2 Verificar se está rodando
+```
 docker compose ps
+```
 3 Conectar no banco (DBeaver)
 
 Host: localhost
 Porta: 5432
 Database: cargasdb
 User: postgres
-Password: 1234
+Password: 1234 (versão demo)
 
 Scripts
 
@@ -90,4 +92,4 @@ Uso de CASE para identificar cargas ATRASADAS ou NO PRAZO.
 
 ## Objetivo educacional
 
-Este projeto foi desenvolvido para consolidar fundamentos de SQL e boas práticas utilizando Docker para ambiente isolado e reproduzível.E: ATRASADA / NO PRAZO)
+Este projeto foi desenvolvido para consolidar fundamentos de SQL e boas práticas utilizando Docker para ambiente isolado e reproduzível.
