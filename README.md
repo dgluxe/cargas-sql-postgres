@@ -88,6 +88,6 @@ Classificação de atraso
 
 Uso de CASE para identificar cargas ATRASADAS ou NO PRAZO.
 
-Objetivo educacional
+## Objetivo educacional
 
 Este projeto foi desenvolvido para consolidar fundamentos de SQL e boas práticas utilizando Docker para ambiente isolado e reproduzível.E: ATRASADA / NO PRAZO)
